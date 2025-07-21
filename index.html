@@ -34,12 +34,20 @@
     .center { text-align: center; }
 
     /* ========== HERO ========== */
-    .hero {
-      background: linear-gradient(to right, #6A0DAD, #000)
-                  top left/100px no-repeat url('logo.png');
-      padding: 80px 20px;
-      color: #fff;
-    }
+   .hero {
+  background-color: #d2b48c;               /* tan canvas */
+  background-image: url('logo.png');       /* your logo */
+  background-repeat: no-repeat;
+  background-position: 20px center;        /* logo 20px from left, vertically centered */
+  background-size: 100px auto;             /* control logo size */
+  padding: 80px 20px 80px 140px;           /* left padding to clear the logo */
+  color: #000;                             /* switch text to black for contrast */
+  text-align: center;
+}
+.hero__title,
+.hero__subtitle {
+  color: #000;                             /* ensure all hero text is black */
+}
     .hero__title {
       font-size: 2.5rem;
       text-transform: uppercase;
