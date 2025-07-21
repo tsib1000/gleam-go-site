@@ -3,166 +3,294 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gleam & Go | Mobile Detailing in Reno</title>
+  <title>Gleam &amp; Go | Mobile Detailing in Reno</title>
+
+  <!-- Calendly widget -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
   <style>
-    @media (max-width: 768px) {
-      .service-section {
-        flex-direction: column !important;
-        align-items: center !important;
-      }
-      .service-card {
-        max-width: 100% !important;
-        margin: 20px 0 !important;
-      }
-      .service-card img {
-        width: 280px !important;
-        height: 280px !important;
-      }
-    }
+    /* ========== RESET & BASE ========== */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #fff;
+      line-height: 1.5;
       background-color: #2e2e2e;
       background-image: url('pexels-damir-20227733.jpg');
       background-repeat: repeat;
       background-size: cover;
-      
-      
+      color: #fff;
     }
-    header, section {
-      padding: 40px 20px;
+    a { text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    /* ========== LAYOUT CONTAINERS ========== */
+    header, main, footer, section {
+      width: 100%;
       max-width: 1200px;
-      margin: auto;
+      margin: 0 auto;
+      padding: 40px 20px;
     }
-    h1, h2, h3 { color: #fff; }
-    .hero { background: linear-gradient(to right, #6A0DAD, #000); text-align: center; padding: 60px 20px; }
-    .hero h1 { font-size: 2.5em; margin-bottom: 0.5em; }
-    .hero p { font-size: 1.2em; }
-    .btn { background: #6A0DAD; color: white; padding: 12px 24px; border: none; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; }
-    .section { margin-top: 40px; }
-    ul { list-style-type: none; padding-left: 0; }
-    li { margin-bottom: 10px; }
-    .footer { text-align: center; padding: 20px; background: #111; font-size: 0.9em; }
-    a { color: #bbb; }
+    .center { text-align: center; }
+
+    /* ========== HERO ========== */
+    .hero {
+      background: linear-gradient(to right, #6A0DAD, #000)
+                  top left/100px no-repeat url('logo.png');
+      padding: 80px 20px;
+      color: #fff;
+    }
+    .hero__title {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      font-weight: 900;
+      margin-bottom: 0.5em;
+    }
+    .hero__subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 1.5em;
+    }
+    .btn {
+      display: inline-block;
+      background: #6A0DAD;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    /* ========== SERVICES ========== */
+    #services .section-title {
+      font-size: 2em;
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 1rem;
+    }
+    .service-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .service-card {
+      background: rgba(0,0,0,0.85);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      overflow: hidden;
+      max-width: 400px;
+      text-align: center;
+    }
+    .service-card img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+    .service-card__body {
+      padding: 1.5rem;
+    }
+    .service-card__body p {
+      margin-bottom: 1rem;
+    }
+    .service-card__pricing {
+      font-weight: bold;
+      color: #fff;
+    }
+    .service-card__pricing + p {
+      margin-top: 0.5rem;
+      color: #ccc;
+      line-height: 1.4;
+    }
+
+    /* ========== MAINTENANCE CALL‑OUT ========== */
+    .maint-callout {
+      display: flex;
+      justify-content: center;
+      padding: 2rem 0;
+    }
+    .maint-callout__box {
+      background: rgba(0,0,0,0.6);
+      padding: 1.5rem 2rem;
+      border-radius: 4px;
+      max-width: 600px;
+      text-align: center;
+    }
+    .maint-callout__text {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .maint-callout__link {
+      color: #ff0000;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    /* ========== WHY CHOOSE ========== */
+    .why-choose {
+      display: flex;
+      justify-content: center;
+      padding: 2rem 0;
+    }
+    .why-choose__box {
+      background: rgba(0,0,0,0.85);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      max-width: 600px;
+      text-align: center;
+    }
+    .why-choose__title {
+      font-size: 2em;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .why-choose__list {
+      list-style: disc inside;
+      color: #fff;
+      text-align: left;
+      margin: 0 auto;
+      max-width: 80%;
+    }
+    .why-choose__list li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* ========== SOCIAL ========== */
+    .social {
+      display: flex;
+      justify-content: center;
+      padding: 2rem 0;
+    }
+    .social__box {
+      background: rgba(0,0,0,0.85);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      max-width: 600px;
+      text-align: center;
+    }
+    .social__title {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .social__link {
+      color: #6A0DAD;
+      font-weight: bold;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      font-size: 0.9em;
+      margin-top: 2rem;
+    }
+
+    /* ========== RESPONSIVE TWEAKS ========== */
+    @media (max-width: 768px) {
+      .service-card img { height: 280px; }
+      .why-choose__list { max-width: 100%; padding: 0 1rem; }
+    }
   </style>
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
 </head>
+
 <body>
-  <header class="hero" style="background-color: #d2b48c; background-image: url('logo.png'); background-repeat: no-repeat; background-position: top left; background-size: 100px; text-align: center; padding: 60px 20px;">
-    <h1 style="text-transform: uppercase; font-weight: 900;">WELCOME TO GLEAM & GO</h1>
-    <p>Booking made simple. No fancy pages, no confusing layouts, just clear information and booking because your time is valuable.</p>
-    <a href="#" class="btn" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/gleamandgonv'});return false;">Book Your Detail Now</a>
-    
+
+  <header class="hero center">
+    <h1 class="hero__title">WELCOME TO GLEAM &amp; GO</h1>
+    <p class="hero__subtitle">
+      Booking made simple. No fancy pages, no confusing layouts — just clear info, because your time is valuable.
+    </p>
+    <a href="#" class="btn"
+       onclick="Calendly.initPopupWidget({url: 'https://calendly.com/gleamandgonv'});return false;">
+      Book Your Detail Now
+    </a>
   </header>
 
-  <section class="section" id="services">
-    <h2 style="font-size: 2em; font-weight: bold; color: black;">Our Services</h2>
+  <main>
 
-    <div class="service-section" style="display: flex; flex-wrap: wrap; gap: 60px; justify-content: center; align-items: flex-start; padding: 20px 0;">
-      <div class="service-card" style="flex: 1 1 300px; max-width: 400px; margin: 0 20px; text-align: center;">
-        <img src="IMG_1137.jpeg" alt="Full Service Detail" style="width: 400px; height: 400px; object-fit: cover; border-radius: 0;">
-        <div style="background: rgba(0, 0, 0, 0.85); padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);">
-         <p><strong>A complete, top-to-bottom detail.</strong><br><br>Combines our full interior and exterior services into one package, including clay bar treatment, light pet hair removal, and odor neutralizer. Perfect for keeping your vehicle looking its best inside and out.</p>
-          <div style="margin-top: 20px;"><p style="margin: 0; font-weight: bold; color: #fff;">Pricing:</p><p style="margin: 4px 0; color: #ccc;"><strong>Coupe:</strong> $220<br><strong>Sedan:</strong> $270<br><strong>Truck/SUV:</strong> $300</p></div>
+    <!-- SERVICES -->
+    <section id="services">
+      <h2 class="section-title center" style="color:#000;">Our Services</h2>
+      <div class="service-section">
+        <!-- Full Service Detail -->
+        <div class="service-card">
+          <img src="IMG_1137.jpeg" alt="Full Service Detail" />
+          <div class="service-card__body">
+            <p><strong>A complete, top-to-bottom detail.</strong><br>Combines interior & exterior services, clay bar, pet hair removal & odor neutralizer.</p>
+            <p class="service-card__pricing">Pricing:</p>
+            <p><strong>Coupe:</strong> $220<br><strong>Sedan:</strong> $270<br><strong>Truck/SUV:</strong> $300</p>
+          </div>
+        </div>
+
+        <!-- Exterior Gleam -->
+        <div class="service-card">
+          <img src="IMG_1183.jpeg" alt="Exterior Gleam" />
+          <div class="service-card__body">
+            <p><strong>Restore your shine with our Exterior Gleam.</strong><br>Hand wash, wheels & tires, under-hood wipe, Carnauba wax, glass & tire dress.</p>
+            <p class="service-card__pricing">Pricing:</p>
+            <p><strong>Coupe:</strong> $120<br><strong>Sedan:</strong> $140<br><strong>Truck/SUV:</strong> $160</p>
+          </div>
+        </div>
+
+        <!-- Mini Interior Gleam -->
+        <div class="service-card">
+          <img src="IMG_1182.jpeg" alt="Mini Interior Gleam" />
+          <div class="service-card__body">
+            <p><strong>Elevate your cabin comfort.</strong><br>Vacuum, door jambs, surfaces, leather conditioning & trunk clean.</p>
+            <p class="service-card__pricing">Pricing:</p>
+            <p><strong>Coupe:</strong> $100<br><strong>Sedan:</strong> $130<br><strong>Truck/SUV:</strong> $140</p>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="service-card" style="flex: 1 1 300px; max-width: 400px; margin: 0 20px; text-align: center;">
-        <img src="IMG_1183.jpeg" alt="Exterior Gleam" style="width: 400px; height: 400px; object-fit: cover; border-radius: 0;">
-        <div style="background: rgba(0, 0, 0, 0.85); padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);">
-          <p><strong>Restore your shine with our Exterior Gleam.</strong><br><br>This package includes a hand wash with pH-balanced shampoo, wheel and tire cleaning, under-hood surface wipe, and a Premium Carnauba wax for a glossy, protected finish, all topped off with crystal-clear windows and dressed tires.</p>
-          <div style="margin-top: 20px;"><p style="margin: 0; font-weight: bold; color: #fff;">Pricing:</p><p style="margin: 4px 0; color: #ccc;"><strong>Coupe:</strong> $120<br><strong>Sedan:</strong> $140<br><strong>Truck/SUV:</strong> $160</p></div>
-        </div>
-      </div>
-
-      <div class="service-card" style="flex: 1 1 300px; max-width: 400px; margin: 0 20px; text-align: center;">
-        <img src="IMG_1182.jpeg" alt="Mini Interior Gleam" style="width: 400px; height: 400px; object-fit: cover; border-radius: 0;">
-        <div style="background: rgba(0, 0, 0, 0.85); padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);">
-          <p><strong>Elevate your cabin comfort.</strong><br><br>The Mini Interior Gleam delivers a refined refresh with full vacuuming, door jamb cleaning, detailed surface care, leather conditioning, and trunk cleaning. Your interior is left polished, pristine, and effortlessly inviting.</p>
-          <div style="margin-top: 20px;"><p style="margin: 0; font-weight: bold; color: #fff;">Pricing:</p><p style="margin: 4px 0; color: #ccc;"><strong>Coupe:</strong> $100<br><strong>Sedan:</strong> $130<br><strong>Truck/SUV:</strong> $140</p></div>
-        </div>
+    <!-- MAINTENANCE CALL‑OUT -->
+    <div class="maint-callout">
+      <div class="maint-callout__box">
+        <p class="maint-callout__text">
+          Ask us about our Maintenance Package or download the PDF at the link below!
+        </p>
+        <a href="/maintenance-gleam.pdf" class="maint-callout__link">
+          Download the Maintenance Gleam Sell Sheet (PDF)
+        </a>
       </div>
     </div>
-</section>
 
-  <div style="text-align:center; margin:2rem 0;">
-  
-  <!-- Black translucent box -->
-  <div style="
-       display:inline-block;
-       background:rgba(0,0,0,0.6);   /* translucent black */
-       padding:1.25rem 2rem;
-       border-radius:4px;">
+    <!-- WHY CHOOSE -->
+    <div class="why-choose">
+      <div class="why-choose__box">
+        <h2 class="why-choose__title">Why Choose Gleam &amp; Go?</h2>
+        <ul class="why-choose__list">
+          <li>Professional-grade results, every time.</li>
+          <li>Fully mobile — we come to you.</li>
+          <li>Eco-conscious — rinseless details on request.</li>
+          <li>$40 OFF Full Detail for first-time clients.</li>
+        </ul>
+      </div>
+    </div>
 
-    <!-- Bold description -->
-    <p style="font-size:1.1rem; font-weight:bold; color:#ffffff; margin:0 0 1rem;">
-      Ask us about our Maintenance Package or download the PDF at the link below!
-    </p>
+    <!-- SOCIAL -->
+    <div class="social">
+      <div class="social__box">
+        <h2 class="social__title">Follow Us</h2>
+        <p>📸 Instagram: 
+          <a href="https://instagram.com/gleamandgonv" target="_blank" class="social__link">
+            @gleamandgonv
+          </a>
+        </p>
+      </div>
+    </div>
 
-    <!-- Download link -->
-    <a href="/maintenance-gleam.pdf"
-       style="
-         color:#ff0000;
-         font-weight:bold;
-         text-transform:uppercase;
-         text-decoration:none;">
-      Download the Maintenance Gleam Sell Sheet (PDF)
-    </a>
-
-  </div>
-</div
-  
-<!-- WHY CHOOSE GLEAM & GO -->
-<section id="about"
-         style="
-           display:flex;
-           justify-content:center;
-           align-items:center;          /* vertical centering if parent has height */
-           padding:3rem 0;">
-
-  <div style="
-        background:rgba(0,0,0,0.85);
-        padding:30px;
-        border-radius:12px;
-        box-shadow:0 4px 12px rgba(0,0,0,0.4);
-        max-width:600px;
-        text-align:center;">
-
-    <h2 style="
-          font-size:2em;
-          font-weight:bold;
-          color:#ffffff;
-          margin-bottom:1rem;">
-      Why Choose Gleam&nbsp;&amp;&nbsp;Go?
-    </h2>
-
-    <ul style="
-          list-style-type:disc;
-          padding-left:1.2rem;  /* keeps bullets visible */
-          color:#ffffff;
-          font-size:1.05rem;
-          margin:0;">
-      <li style="margin-bottom:0.5rem;">Professional‑grade results, every&nbsp;time.</li>
-      <li style="margin-bottom:0.5rem;">Fully mobile — we come to you.</li>
-      <li style="margin-bottom:0.5rem;">Eco‑conscious — ask for a rinseless detail.</li>
-      <li>$40 OFF Full Detail for first‑time clients.</li>
-    </ul>
-
-  </div>
-</section>
-
-<section class="section" id="social" style="display: flex; justify-content: center;">
-  <div style="background: rgba(0, 0, 0, 0.85); padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); max-width: 600px; text-align: center;">
-    <h2 style="font-size: 2em; font-weight: bold; color: white;">Follow Us</h2>
-    <p style="font-size: 1.1em; color: #ccc;">📸 Instagram: <a href="https://instagram.com/gleamandgonv" target="_blank" style="color: #6A0DAD; text-decoration: none; font-weight: bold;">@gleamandgonv</a></p>
-  </div>
-</section>
+  </main>
 
   <footer class="footer">
-    <p>&copy; 2025 Gleam & Go. All rights reserved.</p>
+    <p>&copy; 2025 Gleam &amp; Go. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
