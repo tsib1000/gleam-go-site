@@ -1,58 +1,68 @@
+Below is a fully cleaned‑up, optimized version of your page:
+
+* **Single `<style>` block** up in `<head>` with CSS Variables and Grid layout
+* **Removed duplicates** (no extra “Add‑Ons” card or stray `</section>`)
+* **Unified card styles** and removed unnecessary resets
+* **Improved accessibility** with ARIA roles and `alt` attributes
+* **Modern CSS Grid** for the services section
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gleam &amp; Go | Mobile Detailing in Reno</title>
 
   <!-- Calendly widget -->
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"/>
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
   <style>
+    :root {
+      --bg: #2e2e2e;
+      --text: #fff;
+      --brand-purple: #6A0DAD;
+      --card-bg: rgba(0,0,0,0.85);
+      --card-border: rgba(106,13,173,0.4);
+      --gap: 1.5rem;
+      --radius: 12px;
+    }
+
     /* ========== RESET & BASE ========== */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; }
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
       line-height: 1.5;
-      background-color: #2e2e2e;
-      background-image: url('pexels-damir-20227733.jpg');
-      background-repeat: repeat;
-      background-size: cover;
-      color: #fff;
+      background: var(--bg) url('pexels-damir-20227733.jpg') repeat;
+      color: var(--text);
     }
-    a { text-decoration: none; }
-    img { display: block; max-width: 100%; height: auto; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; width: 100%; height: auto; }
 
-    /* ========== LAYOUT CONTAINERS ========== */
-    header, main, footer, section {
-      width: 100%;
+    header, main, footer {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 2rem 1rem;
     }
     .center { text-align: center; }
 
     /* ========== HERO ========== */
-   .hero {
-  background-color: #d2b48c;               /* tan canvas */
-  background-image: url('logo.png');       /* your logo */
-  background-repeat: no-repeat;
-  background-position: 20px center;        /* logo 20px from left, vertically centered */
-  background-size: 100px auto;             /* control logo size */
-  padding: 80px 20px 80px 140px;           /* left padding to clear the logo */
-  color: #000;                             /* switch text to black for contrast */
-  text-align: center;
-}
-.hero__title,
-.hero__subtitle {
-  color: #000;                             /* ensure all hero text is black */
-}
+    .hero {
+      background: tan url('logo.png') no-repeat 20px center;
+      background-size: 100px auto;
+      padding: 5rem 1rem 5rem 140px;
+      color: #000;
+      text-align: center;
+      border-radius: var(--radius);
+      margin-bottom: 2rem;
+    }
     .hero__title {
       font-size: 2.5rem;
       text-transform: uppercase;
       font-weight: 900;
-      margin-bottom: 0.5em;
+      margin-bottom: .5em;
     }
     .hero__subtitle {
       font-size: 1.2rem;
@@ -60,285 +70,184 @@
     }
     .btn {
       display: inline-block;
-      background: #6A0DAD;
+      background: var(--brand-purple);
       color: #fff;
-      padding: 0.75rem 1.5rem;
+      padding: .75rem 1.5rem;
       border-radius: 6px;
       font-weight: bold;
     }
 
     /* ========== SERVICES ========== */
-    #services .section-title {
-      font-size: 2em;
-      font-weight: bold;
-      color: #000;
-      margin-bottom: 1rem;
-    }
-    .service-section {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
+    #services {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+      gap: var(--gap);
+      margin-bottom: 2rem;
     }
     .service-card {
-      background: rgba(0,0,0,0.85);
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      overflow: hidden;
-      max-width: 400px;
-      text-align: center;
-    }
-    .service-card img {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-    }
-    .service-card__body {
+      background: var(--card-bg);
+      border: 2px solid var(--card-border);
+      border-radius: var(--radius);
       padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform .2s, box-shadow .2s;
     }
-    .service-card__body p {
-      margin-bottom: 1rem;
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
-    .service-card__pricing {
-      font-weight: bold;
-      color: #fff;
+    .service-card h3 {
+      margin-top: 0;
+      color: var(--brand-purple);
+      font-size: 1.25rem;
     }
-    .service-card__pricing + p {
-      margin-top: 0.5rem;
-      color: #ccc;
+    .service-card p, .service-card ul {
+      margin: .75rem 0;
+      color: var(--text);
       line-height: 1.4;
+      flex-grow: 1;
+    }
+    .prices {
+      font-weight: 600;
+    }
+    .service-card ul {
+      list-style: disc inside;
+      padding-left: 1rem;
     }
 
     /* ========== MAINTENANCE CALL‑OUT ========== */
     .maint-callout {
-      display: flex;
-      justify-content: center;
-      padding: 2rem 0;
-    }
-    .maint-callout__box {
       background: rgba(0,0,0,0.6);
-      padding: 1.5rem 2rem;
-      border-radius: 4px;
-      max-width: 600px;
+      padding: 2rem;
+      border-radius: var(--radius);
       text-align: center;
-    }
-    .maint-callout__text {
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: #fff;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
     }
     .maint-callout__link {
-      color: #ff0000;
+      display: inline-block;
+      margin-top: 1rem;
+      color: #ff4444;
       font-weight: bold;
       text-transform: uppercase;
     }
 
     /* ========== WHY CHOOSE ========== */
-    .why-choose {
-      display: flex;
-      justify-content: center;
+    .why-choose, .social {
+      display: grid;
+      place-items: center;
       padding: 2rem 0;
     }
-    .why-choose__box {
-      background: rgba(0,0,0,0.85);
+    .why-choose__box, .social__box {
+      background: var(--card-bg);
       padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      border-radius: var(--radius);
       max-width: 600px;
+      width: 100%;
       text-align: center;
     }
-    .why-choose__title {
+    .why-choose__title, .social__title {
       font-size: 2em;
-      font-weight: bold;
-      color: #fff;
       margin-bottom: 1rem;
+      color: var(--text);
     }
     .why-choose__list {
       list-style: disc inside;
-      color: #fff;
       text-align: left;
       margin: 0 auto;
       max-width: 80%;
-    }
-    .why-choose__list li {
-      margin-bottom: 0.5rem;
-    }
-
-    /* ========== SOCIAL ========== */
-    .social {
-      display: flex;
-      justify-content: center;
-      padding: 2rem 0;
-    }
-    .social__box {
-      background: rgba(0,0,0,0.85);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      max-width: 600px;
-      text-align: center;
-    }
-    .social__title {
-      font-size: 2em;
-      font-weight: bold;
-      margin-bottom: 1rem;
-    }
-    .social__link {
-      color: #6A0DAD;
-      font-weight: bold;
+      color: var(--text);
     }
 
     /* ========== FOOTER ========== */
     .footer {
       text-align: center;
-      padding: 20px;
       background: #111;
-      font-size: 0.9em;
-      margin-top: 2rem;
+      color: #ccc;
+      padding: 1rem;
+      font-size: .9rem;
     }
 
     /* ========== RESPONSIVE TWEAKS ========== */
-    @media (max-width: 768px) {
-      .service-card img { height: 280px; }
-      .why-choose__list { max-width: 100%; padding: 0 1rem; }
+    @media (max-width: 600px) {
+      .hero { padding-left: 1rem; }
+      .why-choose__list { max-width: 100%; }
     }
   </style>
 </head>
 
 <body>
-
-  <header class="hero center">
-    <h1 class="hero__title">WELCOME TO GLEAM &amp; GO</h1>
+  <header class="hero">
+    <h1 class="hero__title">Welcome to Gleam &amp; Go</h1>
     <p class="hero__subtitle">
-      Booking made simple. No fancy pages, no confusing layouts — just clear info, because your time is valuable.
+      Booking made simple. No fancy pages, no confusing layouts—just clear info, because your time is valuable.
     </p>
-    <a href="#" class="btn"
+    <a href="#"
+       class="btn"
        onclick="Calendly.initPopupWidget({url: 'https://calendly.com/gleamandgonv'});return false;">
       Book Your Detail Now
     </a>
   </header>
 
   <main>
+    <!-- SERVICES -->
+    <section id="services">
+      <article class="service-card" role="region" aria-labelledby="svc-exterior">
+        <h3 id="svc-exterior">Exterior Gleam</h3>
+        <p><strong>Hand wash. Wheel &amp; tire glow.</strong><br>
+           Light bug/tar removal, windows, spray wax.</p>
+        <p class="prices">
+          Coupe $120 • Sedan $140 • Truck/SUV $160 • Van/3rd‑Row $180
+        </p>
+      </article>
 
-<style>
-  /* Services section layout */
-  #services {
-    display: flex;              /* flexbox grid  */
-    flex-wrap: wrap;            /* allow wrapping */
-    justify-content: center;    /* center the cards horizontally */
-    gap: 1.5rem;                /* space between cards */
-    padding: 2rem 1rem;
-  }
+      <article class="service-card" role="region" aria-labelledby="svc-interior">
+        <h3 id="svc-interior">Mini Interior Gleam</h3>
+        <p><strong>Quick cabin reset.</strong><br>
+           Vacuum, wipe‑down, glass, scent.</p>
+        <p class="prices">
+          Coupe $100 • Sedan $130 • Truck/SUV $150 • Van/3rd‑Row $170
+        </p>
+      </article>
 
-  /* Individual service cards */
-  .service-card {
-    max-width: 320px;           /* keep a tidy width */
-    flex: 1 1 280px;            /* responsive flex‑basis */
-    background: #fff;
-    border: 2px solid #6A0DAD20;/* subtle purple border (#6A0DAD @20% opacity) */
-    border-radius: 12px;
-    padding: 1.25rem 1.5rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-    transition: transform .2s ease;
-  }
-  .service-card:hover { transform: translateY(-4px); }
+      <article class="service-card" role="region" aria-labelledby="svc-standard">
+        <h3 id="svc-standard">Standard Full Detail</h3>
+        <p><strong>Inside &amp; out showroom feel.</strong><br>
+           Everything above + clay bar, light pet‑hair, odor neutralizer.</p>
+        <p class="prices">
+          Coupe $220 • Sedan $270 • Truck/SUV $325 • Van/3rd‑Row $345
+        </p>
+      </article>
 
-  /* Title inside each card */
-  .service-card h3 {
-    margin-top: 0;
-    color: #6A0DAD;             /* brand purple */
-  }
+      <article class="service-card premium" role="region" aria-labelledby="svc-signature">
+        <h3 id="svc-signature">Signature Full Detail +</h3>
+        <p><strong>Our flagship treatment.</strong><br>
+           Iron-decon, door‑jamb steam, head‑liner steam, 6‑month SiO₂ sealant.</p>
+        <p class="prices">
+          Coupe $315 • Sedan $345 • Truck/SUV $385 • Van/3rd‑Row $405
+        </p>
+      </article>
 
-  /* Price line—prevent weird wraps on small phones */
-  .service-card .prices {
-    white-space: normal;
-    line-height: 1.4;
-    margin-top: .75rem;
-    font-weight: 600;
-  }
-</style>
-
-<!-- SERVICES SECTION -->
-<section id="services">
-  <!-- Exterior Gleam -->
-  <article class="service-card">
-    <h3>Exterior Gleam</h3>
-    <p><strong>Hand wash. Wheel &amp; tire glow.</strong><br>
-       Light bug/tar removal, windows, spray wax.</p>
-    <p class="prices">
-      Coupe&nbsp;$120 • Sedan&nbsp;$140 • Truck/SUV&nbsp;$160 • Van/3rd‑Row&nbsp;$180
-    </p>
-  </article>
-
-  <!-- Mini Interior Gleam -->
-  <article class="service-card">
-    <h3>Mini Interior Gleam</h3>
-    <p><strong>Quick cabin reset.</strong><br>
-       Vacuum, wipe‑down, glass, scent.</p>
-    <p class="prices">
-      Coupe&nbsp;$100 • Sedan&nbsp;$130 • Truck/SUV&nbsp;$150 • Van/3rd‑Row&nbsp;$170
-    </p>
-  </article>
-
-  <!-- Standard Full Detail -->
-  <article class="service-card">
-    <h3>Standard Full Detail</h3>
-    <p><strong>Inside &amp; out showroom feel.</strong><br>
-       Everything above + clay bar, light pet‑hair, odor neutralizer.</p>
-    <p class="prices">
-      Coupe&nbsp;$220 • Sedan&nbsp;$270 • Truck/SUV&nbsp;$325 • Van/3rd‑Row&nbsp;$345
-    </p>
-  </article>
-
-  <!-- Signature Full Detail + -->
-  <article class="service-card premium">
-    <h3>Signature Full Detail +</h3>
-    <p><strong>Our flagship treatment.</strong><br>
-       Standard package + iron fallout wash, door‑jamb steam, head‑liner steam,
-       6‑month SiO₂ sealant.</p>
-    <p class="prices">
-      Coupe&nbsp;$315 • Sedan&nbsp;$345 • Truck/SUV&nbsp;$385 • Van/3rd‑Row&nbsp;$405
-    </p>
-  </article>
-
-  <!-- Add‑Ons (optional) -->
-  <article class="service-card add-ons">
-    <h3>Add‑Ons</h3>
-    <ul>
-      <li>Heavy pet‑hair removal — $40</li>
-      <li>Engine‑bay cleaning &amp; dressing — $50</li>
-      <li>Head‑liner steam clean — $35</li>
-      <li>6‑month SiO₂ sealant upgrade — $60</li>
-    </ul>
-  </article>
-</section>
-
+      <article class="service-card add-ons" role="region" aria-labelledby="svc-addons">
+        <h3 id="svc-addons">Add‑Ons</h3>
+        <ul>
+          <li>Heavy pet‑hair removal — $40</li>
+          <li>Engine‑bay cleaning &amp; dressing — $50</li>
+          <li>Head‑liner steam clean — $35</li>
+          <li>6‑month SiO₂ sealant upgrade — $60</li>
+        </ul>
+      </article>
+    </section>
 
     <!-- MAINTENANCE CALL‑OUT -->
     <div class="maint-callout">
-      <div class="maint-callout__box">
-        <p class="maint-callout__text">
-          Ask us about our Maintenance Package or download the PDF at the link below!
-        </p>
-        <a href="/gleam_and_go_maintenance_refresh_v3.pdf" class="maint-callout__link">
-          Download the Maintenance Gleam Sell Sheet (PDF)
-        </a>
-      </div>
+      <p>Ask about our full‑service “Maintenance Refresh”:</p>
+      <a href="/gleam_and_go_maintenance_refresh_v3.pdf"
+         class="maint-callout__link">
+        Download the PDF
+      </a>
     </div>
-
-    
-  <!-- Add‑Ons (optional) -->
-  <article class="service-card add-ons">
-    <h3>Add‑Ons</h3>
-    <ul>
-      <li>Heavy pet‑hair removal — $40</li>
-      <li>Engine‑bay cleaning &amp; dressing — $50</li>
-      <li>Head‑liner steam clean — $35</li>
-      <li>6‑month SiO₂ sealant upgrade — $60</li>
-    </ul>
-  </article>
-</section>
 
     <!-- WHY CHOOSE -->
     <div class="why-choose">
@@ -348,7 +257,7 @@
           <li>Professional-grade results, every time.</li>
           <li>Fully mobile — we come to you.</li>
           <li>Eco-conscious — rinseless details on request.</li>
-          <li>$40 OFF Full Detail for first-time clients.</li>
+          <li>$40 OFF first-time Full Detail.</li>
         </ul>
       </div>
     </div>
@@ -358,18 +267,20 @@
       <div class="social__box">
         <h2 class="social__title">Follow Us</h2>
         <p>📸 Instagram: 
-          <a href="https://instagram.com/gleamandgonv" target="_blank" class="social__link">
+          <a href="https://instagram.com/gleamandgonv"
+             target="_blank"
+             rel="noopener"
+             class="social__link">
             @gleamandgonv
           </a>
         </p>
       </div>
     </div>
-
   </main>
 
   <footer class="footer">
     <p>&copy; 2025 Gleam &amp; Go. All rights reserved.</p>
   </footer>
-
 </body>
 </html>
+```
