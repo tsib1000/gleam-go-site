@@ -84,6 +84,7 @@
       flex-direction: column;
       justify-content: space-between;
       transition: transform .2s, box-shadow .2s;
+      color: var(--brand-purple);
     }
     .service-card:hover {
       transform: translateY(-4px);
@@ -91,12 +92,10 @@
     }
     .service-card h3 {
       margin-top: 0;
-      color: var(--brand-purple);
       font-size: 1.25rem;
     }
     .service-card p, .service-card ul {
       margin: .75rem 0;
-      color: var(--text);
       line-height: 1.4;
       flex-grow: 1;
     }
@@ -124,7 +123,7 @@
       text-transform: uppercase;
     }
 
-    /* ========== WHY CHOOSE ========== */
+    /* ========== WHY CHOOSE & SOCIAL ========== */
     .why-choose, .social {
       display: grid;
       place-items: center;
@@ -219,16 +218,6 @@
           Coupe $315 • Sedan $345 • Truck/SUV $385 • Van/3rd‑Row $405
         </p>
       </article>
-
-      <article class="service-card add-ons" role="region" aria-labelledby="svc-addons">
-        <h3 id="svc-addons">Add‑Ons</h3>
-        <ul>
-          <li>Heavy pet‑hair removal — $40</li>
-          <li>Engine‑bay cleaning &amp; dressing — $50</li>
-          <li>Head‑liner steam clean — $35</li>
-          <li>6‑month SiO₂ sealant upgrade — $60</li>
-        </ul>
-      </article>
     </section>
 
     <!-- MAINTENANCE CALL‑OUT -->
@@ -274,4 +263,3 @@
   </footer>
 </body>
 </html>
-```
