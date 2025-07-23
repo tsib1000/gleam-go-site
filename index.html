@@ -221,10 +221,47 @@
 
   <main>
 
-<!-- SERVICES SECTION -->
-<section id="services" class="services">
-  <h2 class="section-title">OUR&nbsp;SERVICES</h2>
+<!-- Add (or merge) this CSS somewhere in your main stylesheet -->
+<style>
+  /* Services section layout */
+  #services {
+    display: flex;              /* flexbox grid  */
+    flex-wrap: wrap;            /* allow wrapping */
+    justify-content: center;    /* center the cards horizontally */
+    gap: 1.5rem;                /* space between cards */
+    padding: 2rem 1rem;
+  }
 
+  /* Individual service cards */
+  .service-card {
+    max-width: 320px;           /* keep a tidy width */
+    flex: 1 1 280px;            /* responsive flex‑basis */
+    background: #fff;
+    border: 2px solid #6A0DAD20;/* subtle purple border (#6A0DAD @20% opacity) */
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    transition: transform .2s ease;
+  }
+  .service-card:hover { transform: translateY(-4px); }
+
+  /* Title inside each card */
+  .service-card h3 {
+    margin-top: 0;
+    color: #6A0DAD;             /* brand purple */
+  }
+
+  /* Price line—prevent weird wraps on small phones */
+  .service-card .prices {
+    white-space: normal;
+    line-height: 1.4;
+    margin-top: .75rem;
+    font-weight: 600;
+  }
+</style>
+
+<!-- SERVICES SECTION -->
+<section id="services">
   <!-- Exterior Gleam -->
   <article class="service-card">
     <h3>Exterior Gleam</h3>
@@ -232,8 +269,6 @@
        Light bug/tar removal, windows, spray wax.</p>
     <p class="prices">
       Coupe&nbsp;$120 • Sedan&nbsp;$140 • Truck/SUV&nbsp;$160 • Van/3rd‑Row&nbsp;$180
-      .prices { white-space: normal; line-height: 1.4; }
-
     </p>
   </article>
 
@@ -244,8 +279,6 @@
        Vacuum, wipe‑down, glass, scent.</p>
     <p class="prices">
       Coupe&nbsp;$100 • Sedan&nbsp;$130 • Truck/SUV&nbsp;$150 • Van/3rd‑Row&nbsp;$170
-      .prices { white-space: normal; line-height: 1.4; }
-
     </p>
   </article>
 
@@ -256,8 +289,6 @@
        Everything above + clay bar, light pet‑hair, odor neutralizer.</p>
     <p class="prices">
       Coupe&nbsp;$220 • Sedan&nbsp;$270 • Truck/SUV&nbsp;$325 • Van/3rd‑Row&nbsp;$345
-      .prices { white-space: normal; line-height: 1.4; }
-
     </p>
   </article>
 
@@ -269,23 +300,8 @@
        6‑month SiO₂ sealant.</p>
     <p class="prices">
       Coupe&nbsp;$315 • Sedan&nbsp;$345 • Truck/SUV&nbsp;$385 • Van/3rd‑Row&nbsp;$405
-      .prices { white-space: normal; line-height: 1.4; }
-
     </p>
   </article>
-
-  <!-- Maintenance Refresh -->
-  <article class="service-card maintenance">
-    <h3>Maintenance Refresh</h3>
-    <p><strong>Quick inside‑&‑out spruce‑up.</strong><br>
-       Ideal 3‑5 weeks after a full detail (repeat clients only).</p>
-    <p class="prices">
-      Coupe&nbsp;/ Sedan&nbsp;$180 • Truck/SUV&nbsp;$200 • Van/3rd‑Row&nbsp;$220
-      .prices { white-space: normal; line-height: 1.4; }
-
-    </p>
-  </article>
-
 
   <!-- Add‑Ons (optional) -->
   <article class="service-card add-ons">
@@ -299,6 +315,7 @@
   </article>
 </section>
 
+
     <!-- MAINTENANCE CALL‑OUT -->
     <div class="maint-callout">
       <div class="maint-callout__box">
@@ -310,6 +327,19 @@
         </a>
       </div>
     </div>
+
+    
+  <!-- Add‑Ons (optional) -->
+  <article class="service-card add-ons">
+    <h3>Add‑Ons</h3>
+    <ul>
+      <li>Heavy pet‑hair removal — $40</li>
+      <li>Engine‑bay cleaning &amp; dressing — $50</li>
+      <li>Head‑liner steam clean — $35</li>
+      <li>6‑month SiO₂ sealant upgrade — $60</li>
+    </ul>
+  </article>
+</section>
 
     <!-- WHY CHOOSE -->
     <div class="why-choose">
