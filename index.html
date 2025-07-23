@@ -20,7 +20,7 @@
       --radius: 12px;
     }
 
-    /* ========== RESET & BASE ========== */
+    /* RESET & BASE */
     *, *::before, *::after { box-sizing: border-box; }
     body {
       margin: 0;
@@ -37,9 +37,8 @@
       margin: 0 auto;
       padding: 2rem 1rem;
     }
-    .center { text-align: center; }
 
-    /* ========== HERO ========== */
+    /* HERO */
     .hero {
       background: tan url('logo.png') no-repeat 20px center;
       background-size: 100px auto;
@@ -49,16 +48,8 @@
       border-radius: var(--radius);
       margin-bottom: 2rem;
     }
-    .hero__title {
-      font-size: 2.5rem;
-      text-transform: uppercase;
-      font-weight: 900;
-      margin-bottom: .5em;
-    }
-    .hero__subtitle {
-      font-size: 1.2rem;
-      margin-bottom: 1.5em;
-    }
+    .hero__title { font-size: 2.5rem; text-transform: uppercase; font-weight: 900; }
+    .hero__subtitle { font-size: 1.2rem; margin: 1rem 0 2rem; }
     .btn {
       display: inline-block;
       background: var(--brand-purple);
@@ -68,7 +59,7 @@
       font-weight: bold;
     }
 
-    /* ========== SERVICES ========== */
+    /* SERVICES */
     #services {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
@@ -86,28 +77,13 @@
       transition: transform .2s, box-shadow .2s;
       color: var(--brand-purple);
     }
-    .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
-    .service-card h3 {
-      margin-top: 0;
-      font-size: 1.25rem;
-    }
-    .service-card p, .service-card ul {
-      margin: .75rem 0;
-      line-height: 1.4;
-      flex-grow: 1;
-    }
-    .prices {
-      font-weight: 600;
-    }
-    .service-card ul {
-      list-style: disc inside;
-      padding-left: 1rem;
-    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+    .service-card h3 { margin-top: 0; font-size: 1.25rem; }
+    .service-card p, .service-card ul { margin: .75rem 0; line-height: 1.4; flex-grow: 1; }
+    .prices { font-weight: 600; }
+    .service-card ul { list-style: disc inside; padding-left: 1rem; }
 
-    /* ========== MAINTENANCE CALL‑OUT ========== */
+    /* MAINTENANCE CALL‑OUT */
     .maint-callout {
       background: rgba(0,0,0,0.6);
       padding: 2rem;
@@ -123,61 +99,30 @@
       text-transform: uppercase;
     }
 
-    /* ========== WHY CHOOSE & SOCIAL ========== */
-    .why-choose, .social {
-      display: grid;
-      place-items: center;
-      padding: 2rem 0;
-    }
+    /* WHY CHOOSE & SOCIAL */
+    .why-choose, .social { display: grid; place-items: center; padding: 2rem 0; }
     .why-choose__box, .social__box {
       background: var(--card-bg);
       padding: 2rem;
       border-radius: var(--radius);
       max-width: 600px;
-      width: 100%;
       text-align: center;
     }
-    .why-choose__title, .social__title {
-      font-size: 2em;
-      margin-bottom: 1rem;
-      color: var(--text);
-    }
-    .why-choose__list {
-      list-style: disc inside;
-      text-align: left;
-      margin: 0 auto;
-      max-width: 80%;
-      color: var(--text);
-    }
+    .why-choose__title, .social__title { font-size: 2em; margin-bottom: 1rem; color: var(--text); }
+    .why-choose__list { list-style: disc inside; text-align: left; margin: 0 auto; max-width: 80%; color: var(--text); }
 
-    /* ========== FOOTER ========== */
-    .footer {
-      text-align: center;
-      background: #111;
-      color: #ccc;
-      padding: 1rem;
-      font-size: .9rem;
-    }
+    /* FOOTER */
+    .footer { text-align: center; background: #111; color: #ccc; padding: 1rem; font-size: .9rem; }
 
-    /* ========== RESPONSIVE TWEAKS ========== */
-    @media (max-width: 600px) {
-      .hero { padding-left: 1rem; }
-      .why-choose__list { max-width: 100%; }
-    }
+    @media (max-width: 600px) { .hero { padding-left: 1rem; } .why-choose__list { max-width: 100%; } }
   </style>
 </head>
 
 <body>
   <header class="hero">
     <h1 class="hero__title">Welcome to Gleam &amp; Go</h1>
-    <p class="hero__subtitle">
-      Booking made simple. No fancy pages, no confusing layouts—just clear info, because your time is valuable.
-    </p>
-    <a href="#"
-       class="btn"
-       onclick="Calendly.initPopupWidget({url: 'https://calendly.com/gleamandgonv'});return false;">
-      Book Your Detail Now
-    </a>
+    <p class="hero__subtitle">Booking made simple. No fancy pages, no confusing layouts—just clear info, because your time is valuable.</p>
+    <a href="#" class="btn" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/gleamandgonv'});return false;">Book Your Detail Now</a>
   </header>
 
   <main>
@@ -185,48 +130,37 @@
     <section id="services">
       <article class="service-card" role="region" aria-labelledby="svc-exterior">
         <h3 id="svc-exterior">Exterior Gleam</h3>
-        <p><strong>Hand wash. Wheel &amp; tire shine.</strong><br>
-           Light bug/tar removal, windows, spray wax.</p>
-        <p class="prices">
-          Coupe $120 • Sedan $140 • Truck/SUV $160 • Van/3rd‑Row $180
-        </p>
+        <p><strong>Hand wash. Wheel &amp; tire glow.</strong><br>Light bug/tar removal, windows, spray wax.</p>
+        <p class="prices">Coupe $120 • Sedan $140 • Truck/SUV $160 • Van/3rd‑Row $180</p>
+        <a href="#" class="btn" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/gleamandgonv/exterior-gleam'});return false;">Book Now</a>
       </article>
 
       <article class="service-card" role="region" aria-labelledby="svc-interior">
         <h3 id="svc-interior">Mini Interior Gleam</h3>
-        <p><strong>Quick cabin reset.</strong><br>
-           Vacuum, wipe‑down of all surfaces, floor mats, glass, scent.</p>
-        <p class="prices">
-          Coupe $100 • Sedan $130 • Truck/SUV $150 • Van/3rd‑Row $170
-        </p>
+        <p><strong>Quick cabin reset.</strong><br>Vacuum, wipe‑down, glass, scent.</p>
+        <p class="prices">Coupe $100 • Sedan $130 • Truck/SUV $150 • Van/3rd‑Row $170</p>
+        <a href="#" class="btn" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/gleamandgonv/mini-interior-gleam'});return false;">Book Now</a>
       </article>
 
       <article class="service-card" role="region" aria-labelledby="svc-standard">
         <h3 id="svc-standard">Standard Full Detail</h3>
-        <p><strong>Inside &amp; out showroom feel.</strong><br>
-           Everything before + clay bar, light pet‑hair, UV protectant of all surfaces, odor neutralizer.</p>
-        <p class="prices">
-          Coupe $220 • Sedan $270 • Truck/SUV $325 • Van/3rd‑Row $345
-        </p>
+        <p><strong>Inside &amp; out showroom feel.</strong><br>Everything above + clay bar, light pet‑hair, odor neutralizer.</p>
+        <p class="prices">Coupe $220 • Sedan $270 • Truck/SUV $325 • Van/3rd‑Row $345</p>
+        <a href="#" class="btn" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/gleamandgonv/standard-full-detail'});return false;">Book Now</a>
       </article>
 
       <article class="service-card premium" role="region" aria-labelledby="svc-signature">
         <h3 id="svc-signature">Signature Full Detail +</h3>
-        <p><strong>Our flagship treatment.</strong><br>
-          Everything before + Iron-decon, door‑jamb steam, head‑liner steam, 6‑month SiO₂ sealant.</p>
-        <p class="prices">
-          Coupe $315 • Sedan $345 • Truck/SUV $385 • Van/3rd‑Row $405
-        </p>
+        <p><strong>Our flagship treatment.</strong><br>Iron-decon, door‑jamb steam, head‑liner steam, 6‑month SiO₂ sealant.</p>
+        <p class="prices">Coupe $315 • Sedan $345 • Truck/SUV $385 • Van/3rd‑Row $405</p>
+        <a href="#" class="btn" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/gleamandgonv/signature-full-detail'});return false;">Book Now</a>
       </article>
     </section>
 
     <!-- MAINTENANCE CALL‑OUT -->
     <div class="maint-callout">
       <p>Ask about our full‑service “Maintenance Refresh”:</p>
-      <a href="/gleam_and_go_maintenance_refresh_v3.pdf"
-         class="maint-callout__link">
-        Download the PDF
-      </a>
+      <a href="/gleam_and_go_maintenance_refresh_v3.pdf" class="maint-callout__link">Download the PDF</a>
     </div>
 
     <!-- WHY CHOOSE -->
@@ -237,7 +171,7 @@
           <li>Professional-grade results, every time.</li>
           <li>Fully mobile — we come to you.</li>
           <li>Eco-conscious — rinseless details on request.</li>
-          <li>$30 OFF first-time Full Detail.</li>
+          <li>$40 OFF first-time Full Detail.</li>
         </ul>
       </div>
     </div>
@@ -246,20 +180,11 @@
     <div class="social">
       <div class="social__box">
         <h2 class="social__title">Follow Us</h2>
-        <p>📸 Instagram: 
-          <a href="https://instagram.com/gleamandgonv"
-             target="_blank"
-             rel="noopener"
-             class="social__link">
-            @gleamandgonv
-          </a>
-        </p>
+        <p>📸 Instagram: <a href="https://instagram.com/gleamandgonv" target="_blank" rel="noopener" class="social__link">@gleamandgonv</a></p>
       </div>
     </div>
   </main>
 
-  <footer class="footer">
-    <p>&copy; 2025 Gleam &amp; Go. All rights reserved.</p>
-  </footer>
+  <footer class="footer"><p>&copy; 2025 Gleam &amp; Go. All rights reserved.</p></footer>
 </body>
 </html>
